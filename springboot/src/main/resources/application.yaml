@@ -1,0 +1,41 @@
+
+spring:
+  jackson:
+    default-property-inclusion: non_null
+  datasource:
+    username: root
+    password:  123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seatreservation?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
+  redis:
+    host: localhost
+    port: 6379
+    password: 
+    database: 0
+    timeout: 3000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+
+  thymeleaf:
+    cache: false
+server:
+  port: 9003
+
+
+
+## 开启驼峰支持
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml  #对应mapper映射xml文件所在路径
+#  type-aliases-package: cn.wbnull.springbootdemo.model  #对应实体类路径
+#  configuration:
+#    map-underscore-to-camel-case: true
+
+#mybatis:
+##  type-aliases-package: org.larry.springboot.entity
+#  mapper-locations: classpath:mapper/**/*.xml
+#  check-config-location: true
+

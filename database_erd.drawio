@@ -1,0 +1,113 @@
+<mxfile host="65bd083b81" modified="2026-05-16T08:00:00.000Z" agent="Mozilla/5.0" etag="zCwL7Z9u7VJk5w78B9uP" version="22.1.17" type="device">
+  <diagram id="Diagram" name="数据库实体关系图">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- 用户表 -->
+        <mxCell id="user" value="user\n(用户表)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90D9;fillColor=#E8F4FD;" parent="1" vertex="1">
+          <mxGeometry x="100" y="100" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="user_uid" value="• uid (bigint) PK\n• username (varchar)\n• password (varchar)\n• type (int)\n• score (int)\n• number (bigint)" style="rounded=0;whiteSpace=wrap;html=0;" parent="user" vertex="1">
+          <mxGeometry x="0" y="25" width="180" height="95" as="geometry"/>
+        </mxCell>
+        
+        <!-- 区域表 -->
+        <mxCell id="area" value="area\n(区域表)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90D9;fillColor=#E8F4FD;" parent="1" vertex="1">
+          <mxGeometry x="350" y="100" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="area_aid" value="• aid (int) PK\n• areaName (varchar)\n• subName (varchar)" style="rounded=0;whiteSpace=wrap;html=0;" parent="area" vertex="1">
+          <mxGeometry x="0" y="25" width="180" height="55" as="geometry"/>
+        </mxCell>
+        
+        <!-- 座位表 -->
+        <mxCell id="seat" value="seat\n(座位表)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#4A90D9;fillColor=#E8F4FD;" parent="1" vertex="1">
+          <mxGeometry x="600" y="100" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="seat_sid" value="• sid (bigint) PK\n• area (int) FK\n• type (int)\n• row (int)\n• column (int)\n• state (int)" style="rounded=0;whiteSpace=wrap;html=0;" parent="seat" vertex="1">
+          <mxGeometry x="0" y="25" width="180" height="95" as="geometry"/>
+        </mxCell>
+        
+        <!-- 预约表 -->
+        <mxCell id="reservation" value="reservation\n(预约表)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#52C41A;fillColor=#F6FFED;" parent="1" vertex="1">
+          <mxGeometry x="300" y="280" width="200" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="reservation_rid" value="• rid (bigint) PK\n• uid (bigint) FK\n• startTime (bigint)\n• endTime (bigint)\n• sid (bigint) FK\n• state (int)\n• leaveTime (bigint)\n• score (int)" style="rounded=0;whiteSpace=wrap;html=0;" parent="reservation" vertex="1">
+          <mxGeometry x="0" y="25" width="200" height="115" as="geometry"/>
+        </mxCell>
+        
+        <!-- 帖子表 -->
+        <mxCell id="article" value="article\n(帖子表)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#722ED1;fillColor=#F9F0FF;" parent="1" vertex="1">
+          <mxGeometry x="100" y="500" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="article_id" value="• id (bigint) PK\n• title (varchar)\n• content (varchar)\n• uid (bigint) FK\n• datetime (bigint)" style="rounded=0;whiteSpace=wrap;html=0;" parent="article" vertex="1">
+          <mxGeometry x="0" y="25" width="180" height="75" as="geometry"/>
+        </mxCell>
+        
+        <!-- 评论表 -->
+        <mxCell id="comments" value="comments\n(评论表)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#722ED1;fillColor=#F9F0FF;" parent="1" vertex="1">
+          <mxGeometry x="350" y="500" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="comments_cid" value="• cid (bigint) PK\n• content (varchar)\n• uid (bigint) FK\n• aid (bigint) FK\n• datetime (bigint)" style="rounded=0;whiteSpace=wrap;html=0;" parent="comments" vertex="1">
+          <mxGeometry x="0" y="25" width="180" height="75" as="geometry"/>
+        </mxCell>
+        
+        <!-- 公告表 -->
+        <mxCell id="announce" value="announce\n(公告表)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FAAD14;fillColor=#FFFBE6;" parent="1" vertex="1">
+          <mxGeometry x="600" y="300" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="announce_id" value="• id (bigint) PK\n• title (varchar)\n• content (text)\n• datetime (bigint)" style="rounded=0;whiteSpace=wrap;html=0;" parent="announce" vertex="1">
+          <mxGeometry x="0" y="25" width="180" height="55" as="geometry"/>
+        </mxCell>
+        
+        <!-- 违规类型表 -->
+        <mxCell id="violation_type" value="violation_type\n(违规类型表)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#13C2C2;fillColor=#E6FFFB;" parent="1" vertex="1">
+          <mxGeometry x="100" y="680" width="180" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="violation_type_id" value="• id (int) PK\n• name (varchar)\n• description (varchar)\n• default_score (int)" style="rounded=0;whiteSpace=wrap;html=0;" parent="violation_type" vertex="1">
+          <mxGeometry x="0" y="25" width="180" height="55" as="geometry"/>
+        </mxCell>
+        
+        <!-- 违规记录表 -->
+        <mxCell id="violation" value="violation\n(违规记录表)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FF4D4F;fillColor="#FFF2F0;" parent="1" vertex="1">
+          <mxGeometry x="350" y="680" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="violation_vid" value="• vid (bigint) PK\n• rid (bigint) FK\n• uid (bigint) FK\n• vtype (int) FK\n• deductScore (int)\n• createTime (bigint)" style="rounded=0;whiteSpace=wrap;html=0;" parent="violation" vertex="1">
+          <mxGeometry x="0" y="25" width="180" height="75" as="geometry"/>
+        </mxCell>
+        
+        <!-- 签到记录表 -->
+        <mxCell id="sign_record" value="sign_record\n(签到记录表)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#52C41A;fillColor=#F6FFED;" parent="1" vertex="1">
+          <mxGeometry x="600" y="500" width="180" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="sign_record_sid" value="• sid (bigint) PK\n• rid (bigint) FK\n• uid (bigint) FK\n• type (int)\n• signCode (varchar)\n• createTime (bigint)" style="rounded=0;whiteSpace=wrap;html=0;" parent="sign_record" vertex="1">
+          <mxGeometry x="0" y="25" width="180" height="75" as="geometry"/>
+        </mxCell>
+        
+        <!-- 信用分日志表 -->
+        <mxCell id="credit_log" value="credit_log\n(信用分日志表)" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#FAAD14;fillColor=#FFFBE6;" parent="1" vertex="1">
+          <mxGeometry x="600" y="680" width="180" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="credit_log_clid" value="• clid (bigint) PK\n• uid (bigint) FK\n• changeType (int)\n• changeScore (int)\n• reason (varchar)\n• operator (varchar)\n• createTime (bigint)" style="rounded=0;whiteSpace=wrap;html=0;" parent="credit_log" vertex="1">
+          <mxGeometry x="0" y="25" width="180" height="95" as="geometry"/>
+        </mxCell>
+        
+        <!-- 连接线 -->
+        <mxCell id="conn_user_reservation" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;entryX=0.3;entryY=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="user" target="reservation" edge="1"/>
+        <mxCell id="conn_seat_reservation" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;entryX=0.7;entryY=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="seat" target="reservation" edge="1"/>
+        <mxCell id="conn_area_seat" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;edgeStyle=orthogonalEdgeStyle;" parent="1" source="area" target="seat" edge="1"/>
+        <mxCell id="conn_user_article" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="user" target="article" edge="1"/>
+        <mxCell id="conn_user_comments" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;entryX=0.3;entryY=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="user" target="comments" edge="1"/>
+        <mxCell id="conn_article_comments" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;entryX=0.7;entryY=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="article" target="comments" edge="1"/>
+        <mxCell id="conn_user_violation" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;entryX=0.3;entryY=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="user" target="violation" edge="1"/>
+        <mxCell id="conn_reservation_violation" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;entryX=0.7;entryY=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="reservation" target="violation" edge="1"/>
+        <mxCell id="conn_violation_type_violation" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;edgeStyle=orthogonalEdgeStyle;" parent="1" source="violation_type" target="violation" edge="1"/>
+        <mxCell id="conn_user_sign_record" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;entryX=0.3;entryY=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="user" target="sign_record" edge="1"/>
+        <mxCell id="conn_reservation_sign_record" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;entryX=0.7;entryY=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="reservation" target="sign_record" edge="1"/>
+        <mxCell id="conn_user_credit_log" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="user" target="credit_log" edge="1"/>
+        
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
